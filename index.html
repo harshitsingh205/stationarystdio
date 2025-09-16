@@ -12,22 +12,37 @@
         }
 
         :root {
-            --primary: #0a0e27;
-            --secondary: #1a1f3a;
-            --accent: #64ffda;
+            --primary: #fff8f0;
+            --secondary: #ffe0b2;
+            --accent: #ff7043;
+            --gold: #ffd700;
+            --purple: #ffab91;
+            --pink: #ff5252;
+            --blue: #ff8a65;
+            --dark-bg: #fffde7;
+            --light-text: #4e342e;
+            --heading-text: #d84315;
+            --glass: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 112, 67, 0.25);
+        }
+        [data-theme="dark"] {
+            --primary: #181a20;
+            --secondary: #23262f;
+            --accent: #ff7043;
             --gold: #ffd700;
             --purple: #a855f7;
             --pink: #ec4899;
             --blue: #3b82f6;
-            --dark-bg: #050714;
+            --dark-bg: #181a20;
             --light-text: #e2e8f0;
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
+            --heading-text: #ff7043;
+            --glass: rgba(32, 32, 32, 0.85);
+            --glass-border: rgba(255, 112, 67, 0.18);
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #000;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: var(--light-text);
             overflow-x: hidden;
             position: relative;
@@ -42,10 +57,10 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 90% 10%, rgba(100, 255, 218, 0.15) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(255, 112, 67, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 82, 82, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 235, 59, 0.10) 0%, transparent 50%),
+                radial-gradient(circle at 90% 10%, rgba(255, 171, 145, 0.10) 0%, transparent 50%);
             animation: backgroundShift 20s ease infinite;
             z-index: -1;
         }
@@ -92,8 +107,8 @@
 
         /* Premium Header */
         header {
-            background: rgba(10, 14, 39, 0.8);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 112, 67, 0.85);
+            backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--glass-border);
             position: sticky;
             top: 0;
@@ -122,11 +137,13 @@
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--accent), var(--purple), var(--pink));
+            background: linear-gradient(135deg, var(--heading-text), var(--gold), var(--accent));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
             letter-spacing: -1px;
             position: relative;
         }
@@ -138,9 +155,11 @@
             left: 0;
             font-size: 2rem;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--accent), var(--purple), var(--pink));
+            background: linear-gradient(135deg, var(--accent), var(--gold), var(--pink));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
             filter: blur(20px);
             opacity: 0.5;
             z-index: -1;
@@ -152,11 +171,12 @@
         }
 
         nav a {
-            color: var(--light-text);
+            color: var(--heading-text);
             text-decoration: none;
             position: relative;
             transition: all 0.3s ease;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.08rem;
         }
 
         nav a::after {
@@ -166,7 +186,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--purple));
+            background: linear-gradient(90deg, var(--accent), var(--gold));
             transition: width 0.3s ease;
         }
 
@@ -324,9 +344,11 @@
         .section-title {
             font-size: 3rem;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--accent), var(--purple));
+            background: linear-gradient(135deg, var(--heading-text), var(--gold));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-fill-color: transparent;
             margin-bottom: 1rem;
         }
 
@@ -453,7 +475,7 @@
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: var(--light-text);
+            color: var(--heading-text);
         }
 
         .product-description {
@@ -553,7 +575,7 @@
         .feature-title {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
-            color: var(--accent);
+            color: var(--heading-text);
         }
 
         .feature-description {
@@ -641,7 +663,7 @@
         }
 
         .footer-section h3 {
-            color: var(--accent);
+            color: var(--heading-text);
             margin-bottom: 1rem;
         }
 
@@ -664,8 +686,8 @@
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid var(--glass-border);
-            color: var(--light-text);
-            opacity: 0.5;
+            color: var(--heading-text);
+            opacity: 0.7;
         }
 
         /* Responsive Design */
@@ -678,7 +700,7 @@
                 width: 100%;
                 background: var(--primary);
                 flex-direction: column;
-                padding: 1rem;
+                padding: 0.5rem 0.5rem;
             }
 
             nav.active {
@@ -689,8 +711,13 @@
                 display: block;
             }
 
+            nav a {
+                font-size: 0.95rem;
+                padding: 0.7rem 0.5rem;
+            }
+
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.2rem;
             }
 
             .floating-badge {
@@ -718,11 +745,11 @@
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.3rem;
             }
 
             .header-content {
-                padding: 1rem;
+                padding: 0.5rem;
             }
         }
 
@@ -792,6 +819,32 @@
         .success-message.show {
             transform: translateX(0);
         }
+
+        .theme-toggle {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            color: var(--accent);
+            font-size: 1.2rem;
+            padding: 0.4rem 1.1rem;
+            margin-left: 1rem;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .theme-toggle:hover {
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .theme-toggle {
+                font-size: 1rem;
+                padding: 0.3rem 0.8rem;
+                margin-left: 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -818,6 +871,10 @@
                 <a href="#features">Features</a>
                 <a href="#contact">Contact</a>
             </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <span id="themeIcon">🌞</span> <span id="themeText">Light</span>
+            </button>
+            
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         </div>
     </header>
@@ -946,8 +1003,35 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2024 Stationary Studio. All rights reserved. | Managed by Lakshay Bansal | Developed by Nirmexa Solution</p>
+            <p>© 2024 Stationary Studio. All rights reserved. | Managed by Lakshay Bansal | </p>
         </div>
+        <!-- Place this where you want the designer credit to appear -->
+<div class="designer-credit" style="
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255,112,67,0.18);
+    font-size: 1rem;
+    color: var(--heading-text, #d84315);
+    background: none;
+    opacity: 0.8;
+">
+    <p style="
+        margin: 0;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        font-size: 1em;
+    ">
+        Website Designed &amp; Developed by
+        <a href="https://nirmexa.vercel.app/" target="_blank" style="
+            color: var(--accent, #ff7043);
+            text-decoration: underline;
+            font-weight: bold;
+            transition: color 0.3s;
+        ">Nirmexa Solution</a>
+    </p>
+</div>
     </footer>
 
     <script>
@@ -1482,6 +1566,28 @@ Please respond with product details and pricing. Thank you!`;
             const whatsappUrl = `https://wa.me/919068871964?text=${encodeURIComponent(whatsappMessage)}`;
             window.open(whatsappUrl, '_blank');
         }
+
+        // Theme toggle logic
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        function setTheme(mode) {
+            if (mode === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Dark';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                themeIcon.textContent = '🌞';
+                themeText.textContent = 'Light';
+            }
+        }
+        themeToggle.addEventListener('click', function() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            setTheme(isDark ? 'light' : 'dark');
+        });
+        // Default to light mode
+        setTheme('light');
 
         // Initialize smooth scrolling for navigation links
         function initSmoothScroll() {
